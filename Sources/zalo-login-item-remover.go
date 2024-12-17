@@ -13,7 +13,6 @@ func main() {
 	// Khai báo tham số
 	setupFlag := flag.Bool("setup", false, "Run setup tasks")
 	uninstallFlag := flag.Bool("uninstall", false, "Run uninstall tasks")
-	binFlag := flag.String("bin", "", "Path to the bin directory")
 
 	// Phân tích các tham số dòng lệnh
 	flag.Parse()
@@ -49,7 +48,7 @@ func main() {
 
 		<key>ProgramArguments</key>
 		<array>
-			<string>%s/zalo-login-item-remover</string>
+			<string>/opt/homebrew/bin/zalo-login-item-remover</string>
 		</array>
 
 		<key>WatchPaths</key> 
@@ -60,7 +59,7 @@ func main() {
 		<key>RunAtLoad</key>
 		<true/>
 	</dict>
-</plist>`, *binFlag, homeDir)
+</plist>`, homeDir)
 
 		// Mở hoặc tạo file plist trong thư mục home
 		file, err := os.Create(plistPath)
